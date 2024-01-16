@@ -18,7 +18,7 @@ with open(file, "rb") as f:
         for i in range(len(joemama)-1):
             x = zlib.compress(f[joemama[i]:joemama[i+1]-4])
             print(len(x))
-            w.write(bytearray([0xC1, 0x83, 0x2A, 0x9E, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]))
+            w.write(bytearray([0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]))
             w.write(bytearray([len(x)&0xff, len(x)>>8&0xff]))
             w.write(bytearray([0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]))
             w.write(bytearray([len(x)&0xff, len(x)>>8&0xff]))
